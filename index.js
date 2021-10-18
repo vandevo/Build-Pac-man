@@ -40,7 +40,7 @@ const layout = [
     1,0,1,1,1,1,1,1,1,1,1,1,0,1,1,0,1,1,1,1,1,1,1,1,1,1,0,1,
     1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
     1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
-]
+]   
 
 // create board
 function createBoard() {
@@ -48,8 +48,18 @@ function createBoard() {
         const square = document.createElement('div')
         grid.appendChild(square)
         squares.push(square)
+
+        if (layout[i] === 0){
+            squares[i]
+        }
     }
 }
 
 createBoard()
 
+
+// starting position of Pac-man
+
+let pacmanCurrentIndex = 500 
+
+squares[pacmanCurrentIndex].class.add('pacman')
