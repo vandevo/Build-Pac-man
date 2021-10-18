@@ -1,7 +1,6 @@
 const width = 28
 const grid = document.querySelector('.grid')
-const scoreDisplay = document.querySelector('#score')
-
+const scoreDisplay = document.getElementById('score')
 let squares = []
 
 //28 * 28 = 784
@@ -40,7 +39,7 @@ const layout = [
     1,0,1,1,1,1,1,1,1,1,1,1,0,1,1,0,1,1,1,1,1,1,1,1,1,1,0,1,
     1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
     1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
-]   
+]
 
 // create board
 function createBoard() {
@@ -50,16 +49,15 @@ function createBoard() {
         squares.push(square)
 
         if (layout[i] === 0){
-            squares[i]
+            squares[i].classList.add('pac-dot')
+        } else if (layout[i] === 1){
+            squares[i].classList.add('wall')
+        } else if (layout[i] === 3){
+            squares[i].classList.add('power-pellet')
         }
     }
 }
 
 createBoard()
 
-
-// starting position of Pac-man
-
-let pacmanCurrentIndex = 500 
-
-squares[pacmanCurrentIndex].class.add('pacman')
+console.log(squares)
