@@ -74,27 +74,28 @@ function control(e) {
     // } else if (e.keyCode === 39) {
     //     console.log('pressed right')
     // }
-
+    squares[pacmacCurrentIndex].classList.remove('pacman')
     switch(e.keyCode){
         case 40:
         console.log('pressed down')
-
+        if (pacmanCurrentIndex % width < width * width) pacmacCurrentIndex += width
         break
 
         case 38:
         console.log('pressed up')
-
+        if (pacmanCurrentIndex % width >=0) pacmacCurrentIndex -= width
         break
 
         case 37:
         console.log('pressed left')
-
+        if (pacmacCurrentIndex % width !== 0) pacmanCurrentIndex -=1
         break
 
         case 39:
         console.log('pressed right')
-        
+        if(pacmanCurrentIndex % width < width - 1) pacmanCurrentIndex +=1
         break
     }
+    squares[pacmacCurrentIndex].classList.add('pacman')
 }
 document.addEventListener('keyup', control)
