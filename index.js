@@ -65,37 +65,29 @@ let pacmacCurrentIndex = 490;
 squares[pacmacCurrentIndex].classList.add('pacman')
 
 function control(e) {
-    // if (e.keyCode === 40) {
-    //     console.log('pressed down')
-    // } else if (e.keyCode === 38) {
-    //     console.log('pressed up')
-    // } else if (e.keyCode === 37) {
-    //     console.log('pressed left')
-    // } else if (e.keyCode === 39) {
-    //     console.log('pressed right')
-    // }
-    squares[pacmacCurrentIndex].classList.remove('pacman')
-    switch(e.keyCode){
+    squares[pacmanCurrentIndex].classList.remove('pacman')
+    switch(e.keyCode) {
         case 40:
         console.log('pressed down')
-        if (pacmanCurrentIndex % width < width * width) pacmacCurrentIndex += width
+        if (
+            !squares[pacmanCurrentIndex + width].classList.contains('wall') &&
+            pacmanCurrentIndex + width < width * width
+            ) 
+            pacmanCurrentIndex += width
         break
-
         case 38:
         console.log('pressed up')
-        if (pacmanCurrentIndex % width >=0) pacmacCurrentIndex -= width
+        if (pacmanCurrentIndex - width >=0) pacmanCurrentIndex -= width
         break
-
-        case 37:
+        case 37: 
         console.log('pressed left')
-        if (pacmacCurrentIndex % width !== 0) pacmanCurrentIndex -=1
+        if( pacmanCurrentIndex % width !==0) pacmanCurrentIndex -=1
         break
-
         case 39:
         console.log('pressed right')
-        if(pacmanCurrentIndex % width < width - 1) pacmanCurrentIndex +=1
+        if(pacmanCurrentIndex % width < width -1) pacmanCurrentIndex +=1
         break
     }
-    squares[pacmacCurrentIndex].classList.add('pacman')
+    squares[pacmanCurrentIndex].classList.add('pacman')
 }
 document.addEventListener('keyup', control)
