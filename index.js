@@ -155,13 +155,13 @@ ghosts.forEach(ghost => {
 
 ghosts.forEach(ghost => moveGhost(ghost))
 
-function moveGhost(){
+function moveGhost(ghost){
     console.log('moved ghost')
-    const direction = [1, +1, -width, +width]
+    const directions = [1, +1, -width, +width]
     let direction = direction[Math.floor(Math.random() * directions.length)]
 
     ghost.timerId = setInterval(function(){
-        setInterval(() => {
+       
             if (
                 !squares[ghost.currentIndex + direction].classList.contains('wall') &&
                 !squares[ghost.currentIndex + direction].classList.contains('ghost')
@@ -171,7 +171,7 @@ function moveGhost(){
             ghost.currentIndex += direction
 
             squares[ghost.currentIndex].classList.add(ghost.className)
-    } else direction = direction[Math.floor(Math.random() * directions.length)]
+            } else direction = direction[Math.floor(Math.random() * directions.length)]
     
     }, ghost.speed)
 }
