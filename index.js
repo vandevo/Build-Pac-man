@@ -126,3 +126,52 @@ function pacDotEaten(){
 
     }
 }
+
+class Ghost {
+    constructor(className, startIndex, speed) {
+        this.className = className
+        this.startIndex = startIndex
+        this.speed = speed
+        this.currentIndex = startIndex
+        this.isScared = false
+        this.timerId = NaN
+    }
+}
+
+const ghosts = [ 
+    new Ghost('blinky', 348, 250),
+    new Ghost('pinky', 376, 400),
+    new Ghost('inky', 351, 300),
+    new Ghost('clyde', 379, 500)
+]
+
+
+// draw my ghost onto my grid
+
+ghosts.forEach(ghost => {
+    squares[ghost.startIndex].classList.add(ghost.className)
+    squares[ghost.startIndex].classList.add('ghost')
+})
+
+ghosts.forEach(ghost => moveGhost(ghost))
+
+function moveGhost(){
+    console.log('moved ghost')
+    const direction = [1, +1, -width, +width]
+    let direction = direction[Math.floor(Math.random() * directions.length)]
+
+    ghost.timerId = setInterval(function(){
+        setInterval(() => {
+            if (
+                !squares[ghost.currentIndex + direction].classList.contains('wall') &&
+                !squares[ghost.currentIndex + direction].classList.contains('ghost')
+            ){
+            squares[ghost.currentIndex].classList.remove(ghost.className)
+
+            ghost.currentIndex += direction
+
+            squares[ghost.currentIndex].classList.add(ghost.className)
+    } else direction = direction[Math.floor(Math.random() * directions.length)]
+    
+    }, ghost.speed)
+}
