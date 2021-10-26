@@ -123,9 +123,13 @@ function pacDotEaten(){
         squares[pacmanCurrentIndex].classList.remove('pac-dot');
         score++
         scoreDisplay.innerHTML = score
+        
 
     }
 }
+
+
+
 
 class Ghost {
     constructor(className, startIndex, speed) {
@@ -133,7 +137,7 @@ class Ghost {
         this.startIndex = startIndex
         this.speed = speed
         this.currentIndex = startIndex
-        this.isScared = false
+        this.isScared = true
         this.timerId = NaN
     }
 }
@@ -157,8 +161,8 @@ ghosts.forEach(ghost => moveGhost(ghost))
 
 function moveGhost(ghost){
     console.log('moved ghost')
-    const directions = [1, +1, -width, +width]
-    let direction = direction[Math.floor(Math.random() * directions.length)]
+    const directions = [-1, +1, -width, +width]
+    let direction = directions[Math.floor(Math.random() * directions.length)]
 
     ghost.timerId = setInterval(function(){
        
@@ -167,11 +171,13 @@ function moveGhost(ghost){
                 !squares[ghost.currentIndex + direction].classList.contains('ghost')
             ){
             squares[ghost.currentIndex].classList.remove(ghost.className)
+            squares[ghost.currentIndex].classList.remove('ghost') 
 
             ghost.currentIndex += direction
 
             squares[ghost.currentIndex].classList.add(ghost.className)
-            } else direction = direction[Math.floor(Math.random() * directions.length)]
+            squares[ghost.currentIndex].classList.add('ghost')
+            } else direction = directions[Math.floor(Math.random() * directions.length)]
     
     }, ghost.speed)
 }
