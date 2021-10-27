@@ -1,8 +1,6 @@
-html,
-body {
+html, body {
     margin: 10;
     padding: 10;
-    
 }
 
 .grid {
@@ -10,15 +8,12 @@ body {
     flex-wrap: wrap;
     width: 420px;
     height: 420px;
-    border: solid 1px gray;
-
+    border: solid black;
 }
 
 .grid div {
     width: 15px;
-    height: 15px;
-   
-  
+    height: 15px;   
 }
 
 .pac-dot {
@@ -59,11 +54,10 @@ body {
 
 .clyde {
     background-color: orange;
-    border: none; 
+    border: none;
 }
 
 .scared-ghost {
     background-color: aquamarine;
     border: none;
-
 }
