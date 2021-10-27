@@ -253,4 +253,4 @@ function checkForWin() {
         //tell our user we have won
         scoreDisplay.innerHTML = 'You WON!'
     }
-}
+}´
